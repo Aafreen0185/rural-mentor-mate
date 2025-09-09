@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Users, MessageCircle, Target, Star } from "lucide-react";
+import SignInModal from "@/components/SignInModal";
+import RegistrationModal from "@/components/RegistrationModal";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const [showRegistration, setShowRegistration] = useState(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-sage-green/20">
@@ -35,10 +39,10 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm">
+            <Button variant="ghost" size="sm" onClick={() => setShowSignIn(true)}>
               Sign In
             </Button>
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="sm" onClick={() => setShowRegistration(true)}>
               Get Started
             </Button>
           </div>
@@ -73,10 +77,10 @@ const Navigation = () => {
                 Success Stories
               </a>
               <div className="flex flex-col space-y-2 px-4 pt-4">
-                <Button variant="ghost" size="sm" className="justify-start">
+                <Button variant="ghost" size="sm" className="justify-start" onClick={() => setShowSignIn(true)}>
                   Sign In
                 </Button>
-                <Button variant="hero" size="sm" className="justify-start">
+                <Button variant="hero" size="sm" className="justify-start" onClick={() => setShowRegistration(true)}>
                   Get Started
                 </Button>
               </div>
@@ -84,6 +88,10 @@ const Navigation = () => {
           </div>
         )}
       </div>
+
+      {/* Modals */}
+      <SignInModal isOpen={showSignIn} onClose={() => setShowSignIn(false)} />
+      <RegistrationModal isOpen={showRegistration} onClose={() => setShowRegistration(false)} />
     </nav>
   );
 };

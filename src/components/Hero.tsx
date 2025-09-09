@@ -1,8 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users, MapPin, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { useState } from "react";
+import RegistrationModal from "@/components/RegistrationModal";
 
 const Hero = () => {
+  const [showRegistration, setShowRegistration] = useState(false);
+  const [registrationTab, setRegistrationTab] = useState<"entrepreneur" | "mentor">("entrepreneur");
+
+  const handleStartJourney = () => {
+    setRegistrationTab("entrepreneur");
+    setShowRegistration(true);
+  };
+
+  const handleBecomeMentor = () => {
+    setRegistrationTab("mentor");
+    setShowRegistration(true);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-subtle overflow-hidden">
       {/* Background Image */}
@@ -54,11 +69,11 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button variant="hero" size="lg" className="group">
+            <Button variant="hero" size="lg" className="group" onClick={handleStartJourney}>
               Start Your Journey
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-smooth" />
             </Button>
-            <Button variant="subtle" size="lg">
+            <Button variant="subtle" size="lg" onClick={handleBecomeMentor}>
               Become a Mentor
             </Button>
           </div>
@@ -84,6 +99,13 @@ const Hero = () => {
       {/* Decorative Elements */}
       <div className="absolute top-1/4 right-10 w-20 h-20 bg-warm-gold/20 rounded-full blur-xl hidden lg:block" />
       <div className="absolute bottom-1/4 left-10 w-32 h-32 bg-forest-green/10 rounded-full blur-2xl hidden lg:block" />
+
+      {/* Registration Modal */}
+      <RegistrationModal 
+        isOpen={showRegistration} 
+        onClose={() => setShowRegistration(false)} 
+        defaultTab={registrationTab}
+      />
     </section>
   );
 };
