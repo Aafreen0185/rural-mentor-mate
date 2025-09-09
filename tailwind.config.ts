@@ -57,6 +57,26 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom RuralReach colors
+        "forest-green": "hsl(var(--forest-green))",
+        "warm-gold": "hsl(var(--warm-gold))",
+        "earth-brown": "hsl(var(--earth-brown))",
+        "sage-green": "hsl(var(--sage-green))",
+        "cream": "hsl(var(--cream))",
+      },
+      backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-subtle": "var(--gradient-subtle)",
+        "gradient-card": "var(--gradient-card)",
+      },
+      boxShadow: {
+        "warm": "var(--shadow-warm)",
+        "glow": "var(--shadow-glow)",
+        "card": "var(--shadow-card)",
+      },
+      transitionTimingFunction: {
+        "smooth": "var(--transition-smooth)",
+        "bounce": "var(--transition-bounce)",
       },
       borderRadius: {
         lg: "var(--radius)",
