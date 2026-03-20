@@ -105,6 +105,6 @@ java -cp out Main
 
 ## Author
 
-Aafreen Shaikh
+Aafreen Sheriff M
 B.E. Computer Science Engineering — Chennai Institute of Technology and Applied Research
 [GitHub](https://github.com/Aafreen0185) · [LeetCode](https://leetcode.com/Aafreen_Sh18)
